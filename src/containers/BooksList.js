@@ -1,22 +1,11 @@
+import React from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import Book from '../components/Book';
 
-const BooksList = () => {
-  // const { bookID, title, category } = props;
-  const books = [
-    {
-      bookID: 0,
-      title: 'To Kill a Mockingbird',
-      category: 'Southern Gothic Fiction',
-    }, {
-      bookID: 1,
-      title: 'Drawing Blood',
-      category: 'Horror',
-    }, {
-      bookID: 2,
-      title: 'War & Peace',
-      category: 'Historical Novel',
-    },
-  ];
+const BooksList = props => {
+  const { books } = props;
+
   return (
     <table>
       <thead>
@@ -35,4 +24,20 @@ const BooksList = () => {
   );
 };
 
-export default BooksList;
+BooksList.propTypes = {
+  books: PropTypes.arrayOf(
+    PropTypes.shape({
+      bookID: PropTypes.number,
+      title: PropTypes.string,
+      category: PropTypes.string,
+    }),
+  ),
+};
+
+BooksList.defaultProps = {
+  books: [],
+};
+
+const mapStateToProps = state => ({ books: state.bookReducer });
+
+export default connect(mapStateToProps, null)(BooksList);
