@@ -9,7 +9,11 @@ const Book = ({ book }) => (
 );
 
 Book.propTypes = {
-  book: PropTypes.shape,
+  book: PropTypes.shape({
+    bookID: PropTypes.number,
+    title: PropTypes.string,
+    category: PropTypes.string,
+  }),
 };
 Book.defaultProps = {
   book: null,

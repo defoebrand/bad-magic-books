@@ -15,14 +15,18 @@ const BooksList = () => {
   ];
   return (
     <table>
-      <tr>
-        <th>Book ID</th>
-        <th>Title</th>
-        <th>Category</th>
-      </tr>
-      {books.map(value => (
-        <Book key={value} book={value} />
-      ))}
+      <thead>
+        <tr>
+          <th>Book ID</th>
+          <th>Title</th>
+          <th>Category</th>
+        </tr>
+      </thead>
+      <tbody>
+        {books.map(value => (
+          <Book key={value.title} book={value} />
+        ))}
+      </tbody>
     </table>
   );
 };
