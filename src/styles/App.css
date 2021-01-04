@@ -10,3 +10,11 @@
 table {
   margin-bottom: 25px;
 }
+
+input {
+  margin-left: 10px;
+}
+
+select {
+  margin: 0 10px;
+}

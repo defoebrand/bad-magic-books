@@ -11,6 +11,10 @@ const BooksList = () => {
       bookID: 1,
       title: 'Drawing Blood',
       category: 'Horror',
+    }, {
+      bookID: 2,
+      title: 'War & Peace',
+      category: 'Historical Novel',
     },
   ];
   return (
