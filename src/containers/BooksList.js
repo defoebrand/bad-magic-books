@@ -1,4 +1,6 @@
-export default function BooksList() {
+import Book from '../components/Book';
+
+const BooksList = () => {
   // const { bookID, title, category } = props;
   const books = [
     {
@@ -19,12 +21,10 @@ export default function BooksList() {
         <th>Category</th>
       </tr>
       {books.map(value => (
-        <tr key={value}>
-          <td>{value.bookID}</td>
-          <td>{value.title}</td>
-          <td>{value.category}</td>
-        </tr>
+        <Book key={value} book={value} />
       ))}
     </table>
   );
-}
+};
+
+export default BooksList;
