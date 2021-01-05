@@ -57,11 +57,7 @@ class BooksForm extends React.Component {
 }
 
 BooksForm.propTypes = {
-  dispatch: PropTypes.func,
-};
-
-BooksForm.defaultProps = {
-  dispatch: null,
+  dispatch: PropTypes.func.isRequired,
 };
 
 export default connect(null)(BooksForm);

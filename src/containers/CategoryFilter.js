@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const CategoryFilter = props => {
+const CategoryFilter = ({ handleChange }) => {
   const categories = ['All', 'Action', 'Biography', 'History', 'Horror', 'Kids', 'Learning', 'Sci-Fi'];
-  const { handleChange } = props;
 
   return (
     <div className="filter">
@@ -16,11 +15,7 @@ const CategoryFilter = props => {
 };
 
 CategoryFilter.propTypes = {
-  handleChange: PropTypes.func,
-};
-
-CategoryFilter.defaultProps = {
-  handleChange: null,
+  handleChange: PropTypes.func.isRequired,
 };
 
 export default CategoryFilter;
