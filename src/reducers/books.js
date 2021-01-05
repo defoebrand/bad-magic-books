@@ -14,7 +14,7 @@ const initialState = {
     }, {
       bookID: Math.floor(Math.random() * 10),
       title: 'War & Peace',
-      category: 'Historical Novel',
+      category: 'History',
     },
   ],
 };
@@ -37,10 +37,11 @@ const bookReducer = (state = initialState, action) => {
       if (localStorage.bookstore) {
         return JSON.parse(localStorage.bookstore);
       }
+      localStorage.bookstore = JSON.stringify(state.books);
       return state.books;
   }
   localStorage.bookstore = JSON.stringify(actionVariable);
   return actionVariable;
 };
-//
+
 export default bookReducer;
