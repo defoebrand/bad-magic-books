@@ -11,9 +11,13 @@ const formStyle = {
   margin: '50px auto 0',
 };
 
-const addStyle = {
+const fieldStyle = {
   display: 'flex',
   flexDirection: 'column',
+  border: 'none',
+  margin: '0 40px 65px 0',
+  borderRadius: 4,
+  // boxShadow: '0 0 60px 0 rgba(0, 0, 0, 0.05)',
 };
 
 class BooksForm extends React.Component {
@@ -60,26 +64,26 @@ class BooksForm extends React.Component {
     const { category, title, author } = this.state;
     return (
       <form style={formStyle}>
-        <label htmlFor="title" style={addStyle}>ADD NEW BOOK</label>
-        <input type="text" id="title" name="title" onChange={this.handleChange} value={title} placeholder="Book title" />
-        <input type="text" id="author" name="author" onChange={this.handleChange} value={author} placeholder="Book author" />
-        <select onChange={this.handleChange} value={category}>
-          <option value="">Select a category:</option>
-          {categories.map(value => (
-            <option value={value} key={value}>{value}</option>))}
-        </select>
-        <input type="submit" value="Submit" onClick={this.handleSubmit} />
+        <fieldset style={fieldStyle}>
+          ADD NEW BOOK
+          <div>
+            <input type="text" id="title" name="title" onChange={this.handleChange} value={title} placeholder="Book title" />
+            <input type="text" id="author" name="author" onChange={this.handleChange} value={author} placeholder="Book author" />
+            <select onChange={this.handleChange} value={category}>
+              <option value="">Select a category:</option>
+              {categories.map(value => (
+                <option value={value} key={value}>{value}</option>))}
+            </select>
+            <input type="submit" value="Submit" onClick={this.handleSubmit} />
+          </div>
+        </fieldset>
       </form>
     );
   }
 }
 
 BooksForm.propTypes = {
-  dispatch: PropTypes.func,
-};
-
-BooksForm.defaultProps = {
-  dispatch: null,
+  dispatch: PropTypes.func.isRequired,
 };
 
 export default connect(null)(BooksForm);

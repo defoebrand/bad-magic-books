@@ -94,11 +94,10 @@ Book.propTypes = {
     title: PropTypes.string,
     author: PropTypes.string,
   }),
-  handleClick: PropTypes.func,
+  handleClick: PropTypes.func.isRequired,
 };
 Book.defaultProps = {
-  book: null,
-  handleClick: null,
+  book: [],
 };
 
 export default Book;

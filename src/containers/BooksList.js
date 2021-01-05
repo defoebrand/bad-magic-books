@@ -4,23 +4,26 @@ import PropTypes from 'prop-types';
 import Book from '../components/Book';
 import { removeBook } from '../actions';
 
-const BooksList = props => {
-  const { books, filter } = props;
-
+const BooksList = ({ books, filter, dispatch }) => {
   const handleRemoveBook = ({ title }) => {
-    const { dispatch } = props;
     dispatch(removeBook(title));
   };
+
+  let filteredBooks = '';
+
+  if (filter === 'All') {
+    filteredBooks = books.map(value => (
+      <Book key={value.title} book={value} handleClick={handleRemoveBook} />));
+  } else {
+    filteredBooks = books.filter(book => (book.category === filter)).map(value => (
+      <Book key={value.title} book={value} handleClick={handleRemoveBook} />));
+  }
 
   return (
     <>
       <table>
         <tbody>
-          {books.filter(book => (
-            filter === 'All'
-              ? book
-              : book.category === filter)).map(value => (
-                <Book key={value.title} book={value} handleClick={handleRemoveBook} />))}
+          {filteredBooks}
         </tbody>
       </table>
     </>
@@ -36,13 +39,12 @@ BooksList.propTypes = {
     }),
   ),
   filter: PropTypes.string,
-  dispatch: PropTypes.func,
+  dispatch: PropTypes.func.isRequired,
 };
 
 BooksList.defaultProps = {
   books: [],
   filter: '',
-  dispatch: null,
 };
 
 export default connect(state => ({
