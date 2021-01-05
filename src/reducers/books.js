@@ -22,12 +22,10 @@ const initialState = {
 const bookReducer = (state = initialState, action) => {
   switch (action.type) {
     case CREATE_BOOK:
-      console.log(state);
       return state;
     case REMOVE_BOOK:
-      return {
-        books: state.books,
-      };
+      console.log(state);
+      return state;
     default:
       return state.books;
   }
