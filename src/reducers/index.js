@@ -1,10 +1,10 @@
 import { combineReducers, createStore } from 'redux';
 import bookReducer from './books';
+import filterReducer from './filter';
 
 const combinedReducers = combineReducers({
   bookReducer,
+  filterReducer,
 });
 
-const store = createStore(combinedReducers);
-
-export default store;
+export default createStore(combinedReducers);

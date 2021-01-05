@@ -42,5 +42,5 @@ const bookReducer = (state = initialState, action) => {
   localStorage.bookstore = JSON.stringify(actionVariable);
   return actionVariable;
 };
-//
+
 export default bookReducer;
