@@ -2,8 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Book from '../components/Book';
-import { removeBook, changeFilter } from '../actions';
-import CategoryFilter from './CategoryFilter';
+import { removeBook } from '../actions';
 
 const BooksList = props => {
   const { books, filter } = props;
@@ -13,14 +12,8 @@ const BooksList = props => {
     dispatch(removeBook(title));
   };
 
-  const handleFilterChange = event => {
-    const { dispatch } = props;
-    dispatch(changeFilter(event.target.value));
-  };
-
   return (
     <>
-      <CategoryFilter handleChange={handleFilterChange} />
       <table>
         <tbody>
           {books.filter(book => (

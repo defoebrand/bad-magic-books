@@ -1,13 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+const catStyle = {
+  height: 16,
+  margin: '18px 664px 11px 41px',
+  opacity: 0.5,
+  fontFamily: 'Montserrat',
+  fontSize: 13,
+  letterSpacing: 1.9,
+  color: '#121212',
+  border: 'none',
+  backgroundColor: 'inherit',
+  webkitAppearance: 'none',
+};
+
 const CategoryFilter = props => {
   const categories = ['All', 'Action', 'Biography', 'History', 'Horror', 'Kids', 'Learning', 'Sci-Fi'];
   const { handleChange } = props;
 
   return (
     <div className="filter">
-      <select onChange={handleChange}>
+      <select onChange={handleChange} style={catStyle}>
+        <option value="" key="0">CATEGORIES</option>
         {categories.map(value => (
           <option value={value} key={value}>{value}</option>))}
       </select>

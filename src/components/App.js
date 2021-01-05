@@ -1,29 +1,65 @@
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import BooksList from '../containers/BooksList';
 import BooksForm from '../containers/BooksForm';
+import CategoryFilter from '../containers/CategoryFilter';
+
+import { changeFilter } from '../actions';
+
 import '../styles/App.css';
 
-const style = {
+const headerStyle = {
   display: 'flex',
   justifyContent: 'flex-start',
   alignItems: 'center',
   backgroundColor: '#fff',
-  paddingLeft: 50,
+  margin: '0 0 38px',
+  padding: '23px 99px 27px 100px',
+
 };
 
-const pStyle = {
-  margin: '0 15px',
+const titleStyle = {
+  whiteSpace: 'nowrap',
+  margin: '6px 47px 2px 0',
+  fontFamily: 'Montserrat',
+  fontSize: 30,
+  fontWeight: 'bold',
+  color: '#0290ff',
 };
 
-const App = () => (
-  <div className="App">
-    <header style={style}>
-      <h3>Bookstore CMS</h3>
-      <p style={pStyle}>BOOKS</p>
-      <p>CATEGORIES</p>
-    </header>
-    <BooksList />
-    <BooksForm />
-  </div>
-);
+const bookStyle = {
+  margin: '18px 41px 11px 0',
+  fontFamily: 'Montserrat',
+  fontSize: 13,
+  letterSpacing: 1.9,
+  color: '#121212',
+};
 
-export default App;
+const App = ({ dispatch }) => {
+  const handleFilterChange = event => {
+    dispatch(changeFilter(event.target.value));
+  };
+  return (
+    <div className="App">
+      <header style={headerStyle}>
+        <h3 style={titleStyle}>Bookstore CMS</h3>
+        <p style={bookStyle}>BOOKS</p>
+        <CategoryFilter handleChange={handleFilterChange} />
+      </header>
+      <BooksList />
+      <BooksForm />
+    </div>
+  );
+};
+
+App.propTypes = {
+  dispatch: PropTypes.func,
+};
+
+App.defaultProps = {
+  dispatch: null,
+};
+
+export default connect(null)(App);
+
+// export default App;

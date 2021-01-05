@@ -12,7 +12,7 @@ const initialState = {
       title: 'Drawing Blood',
       author: 'Poppy Z. Brite',
     }, {
-      category: 'Historical Novel',
+      category: 'History',
       title: 'War & Peace',
       author: 'Leo Tolstoy',
     },
@@ -37,6 +37,7 @@ const bookReducer = (state = initialState, action) => {
       if (localStorage.bookstore) {
         return JSON.parse(localStorage.bookstore);
       }
+      localStorage.bookstore = JSON.stringify(state.books);
       return state.books;
   }
   localStorage.bookstore = JSON.stringify(actionVariable);
