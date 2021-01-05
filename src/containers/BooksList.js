@@ -22,13 +22,6 @@ const BooksList = props => {
     <>
       <CategoryFilter handleChange={handleFilterChange} />
       <table>
-        <thead>
-          <tr>
-            <th>Book ID</th>
-            <th>Title</th>
-            <th>Category</th>
-          </tr>
-        </thead>
         <tbody>
           {books.filter(book => (
             filter === 'All'
@@ -44,9 +37,9 @@ const BooksList = props => {
 BooksList.propTypes = {
   books: PropTypes.arrayOf(
     PropTypes.shape({
-      bookID: PropTypes.number,
-      title: PropTypes.string,
       category: PropTypes.string,
+      title: PropTypes.string,
+      author: PropTypes.string,
     }),
   ),
   filter: PropTypes.string,

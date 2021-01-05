@@ -4,9 +4,9 @@ import { CHANGE_FILTER } from '../reducers/filter';
 export const createBook = book => ({
   type: CREATE_BOOK,
   book: {
-    bookID: Math.floor(Math.random() * 10),
-    title: book.title,
     category: book.category,
+    title: book.title,
+    author: book.author,
   },
 });
 

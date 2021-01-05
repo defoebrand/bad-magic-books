@@ -7,8 +7,9 @@ class BooksForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: '',
       category: '',
+      title: '',
+      author: '',
     };
     this.handleChange.bind(this);
     this.handleSubmit.bind(this);
@@ -18,6 +19,10 @@ class BooksForm extends React.Component {
     if (event.target.id === 'title') {
       this.setState({
         title: event.target.value,
+      });
+    } else if (event.target.id === 'author') {
+      this.setState({
+        author: event.target.value,
       });
     } else {
       this.setState({
@@ -31,19 +36,24 @@ class BooksForm extends React.Component {
     const { dispatch } = this.props;
     dispatch(createBook(this.state));
     this.setState({
-      title: '',
       category: '',
+      title: '',
+      author: '',
     });
   }
 
   render() {
     const categories = ['Action', 'Biography', 'History', 'Horror', 'Kids', 'Learning', 'Sci-Fi'];
-    const { title, category } = this.state;
+    const { category, title, author } = this.state;
     return (
       <form>
         <label htmlFor="title">
           Book Title:
           <input type="text" id="title" name="title" onChange={this.handleChange} value={title} />
+        </label>
+        <label htmlFor="author">
+          Book author:
+          <input type="text" id="author" name="author" onChange={this.handleChange} value={author} />
         </label>
         <select onChange={this.handleChange} value={category}>
           <option value="">Select a category:</option>
