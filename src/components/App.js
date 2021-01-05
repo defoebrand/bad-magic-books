@@ -8,20 +8,28 @@ import { changeFilter } from '../actions';
 
 import '../styles/App.css';
 
+const appStyle = {
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'center',
+};
+
 const headerStyle = {
   width: '100%',
   display: 'flex',
   justifyContent: 'flex-start',
   alignItems: 'center',
   backgroundColor: '#fff',
-  margin: '0 0 38px',
-  padding: '23px 99px 27px 100px',
+  marginBottom: 38,
+  // padding: '23px 99px 27px 100px',
   borderBottom: '2px solid #e8e8e8',
 };
 
 const titleStyle = {
   whiteSpace: 'nowrap',
-  margin: '6px 47px 2px 0',
+  // margin: '6px 47px 2px 0',
+  marginLeft: 25,
   fontFamily: 'Montserrat',
   fontSize: 30,
   fontWeight: 'bold',
@@ -29,7 +37,9 @@ const titleStyle = {
 };
 
 const bookStyle = {
-  margin: '18px 41px 11px 0',
+  // margin: '18px 41px 11px 0',
+  marginLeft: 45,
+  marginRight: 45,
   fontFamily: 'Montserrat',
   fontSize: 13,
   letterSpacing: 1.9,
@@ -41,7 +51,7 @@ const App = ({ dispatch }) => {
     dispatch(changeFilter(event.target.value));
   };
   return (
-    <div className="App">
+    <div style={appStyle}>
       <header style={headerStyle}>
         <h3 style={titleStyle}>Bookstore CMS</h3>
         <p style={bookStyle}>BOOKS</p>

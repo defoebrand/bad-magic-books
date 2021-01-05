@@ -4,8 +4,9 @@ const rowStyle = {
   display: 'flex',
   justifyContent: 'space-between',
   width: '80vw',
-  margin: '37px 100px 0',
-  padding: '32px 147px 26px 27px',
+  // margin: '37px 0 0',
+  marginBottom: 35,
+  padding: '32px 25px 25px 25px',
   borderRadius: 4,
   border: 'solid 1px #e8e8e8',
   backgroundColor: '#ffffff',
@@ -26,7 +27,8 @@ const catStyle = {
 };
 
 const titleStyle = {
-  margin: '7px 323px 0 0',
+  margin: '5px 0',
+  // margin: '7px 323px 0 0',
   fontFamily: 'RobotoSlab',
   fontSize: 22,
   fontWeight: 'bold',
@@ -42,7 +44,8 @@ const linksDiv = {
 
 const linkStyle = {
   height: 19,
-  margin: '3px 15px 2px 0',
+  margin: 5,
+  // margin: '3px 15px 2px 0',
   fontFamily: 'RobotoSlab',
   fontSize: 14,
   fontWeight: 300,
@@ -61,8 +64,8 @@ const buttonStyle = {
   border: 'none',
   width: 184,
   height: 33,
-  margin: '12px 0 9px 59px',
-  padding: '7px 19px 8px 22px',
+  // margin: '12px 0 9px 59px',
+  // padding: '7px 19px 8px 22px',
   borderRadius: 3,
   fontFamily: 'RobotoSlab',
   fontSize: 13,

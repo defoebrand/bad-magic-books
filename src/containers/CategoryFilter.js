@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const catStyle = {
   height: 16,
-  margin: '18px 664px 11px 41px',
+  // margin: '18px 664px 11px 41px',
   opacity: 0.5,
   fontFamily: 'Montserrat',
   fontSize: 13,
@@ -11,7 +11,7 @@ const catStyle = {
   color: '#121212',
   border: 'none',
   backgroundColor: 'inherit',
-  webkitAppearance: 'none',
+  WebkitAppearance: 'none',
 };
 
 const CategoryFilter = ({ handleChange }) => {

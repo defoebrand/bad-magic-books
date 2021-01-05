@@ -11,7 +11,7 @@ const BooksList = ({ books, filter, dispatch }) => {
 
   let filteredBooks = '';
 
-  if (filter === 'All') {
+  if (filter === 'All' || filter === '') {
     filteredBooks = books.map(value => (
       <Book key={value.title} book={value} handleClick={handleRemoveBook} />));
   } else {
@@ -21,11 +21,7 @@ const BooksList = ({ books, filter, dispatch }) => {
 
   return (
     <>
-      <table>
-        <tbody>
-          {filteredBooks}
-        </tbody>
-      </table>
+      { filteredBooks }
     </>
   );
 };

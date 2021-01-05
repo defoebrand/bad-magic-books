@@ -5,19 +5,32 @@ import { createBook } from '../actions/index';
 
 const formStyle = {
   borderTop: '2px solid #e8e8e8',
-  marginTop: 50,
   paddingTop: 50,
-  width: '80vw',
-  margin: '50px auto 0',
+  // margin: '50px auto 0',
 };
 
 const fieldStyle = {
   display: 'flex',
   flexDirection: 'column',
   border: 'none',
-  margin: '0 40px 65px 0',
+  // margin: '0 40px 65px 0',
   borderRadius: 4,
+  width: '80vw',
+  marginBottom: 50,
   // boxShadow: '0 0 60px 0 rgba(0, 0, 0, 0.05)',
+};
+
+const inputDivStyle = {
+  display: 'flex',
+  flexWrap: 'wrap',
+  alignItems: 'center',
+  justifyContent: 'flex-start',
+  marginTop: 15,
+  // height: 100,
+};
+
+const innerFields = {
+  margin: 15,
 };
 
 class BooksForm extends React.Component {
@@ -66,15 +79,17 @@ class BooksForm extends React.Component {
       <form style={formStyle}>
         <fieldset style={fieldStyle}>
           ADD NEW BOOK
-          <div>
-            <input type="text" id="title" name="title" onChange={this.handleChange} value={title} placeholder="Book title" />
-            <input type="text" id="author" name="author" onChange={this.handleChange} value={author} placeholder="Book author" />
-            <select onChange={this.handleChange} value={category}>
-              <option value="">Select a category:</option>
-              {categories.map(value => (
-                <option value={value} key={value}>{value}</option>))}
-            </select>
-            <input type="submit" value="Submit" onClick={this.handleSubmit} />
+          <div style={inputDivStyle}>
+            <input type="text" id="title" name="title" onChange={this.handleChange} value={title} placeholder="Book title" style={innerFields} />
+            <input type="text" id="author" name="author" onChange={this.handleChange} value={author} placeholder="Book author" style={innerFields} />
+            <div>
+              <select onChange={this.handleChange} value={category} style={innerFields}>
+                <option value="">Select a category:</option>
+                {categories.map(value => (
+                  <option value={value} key={value}>{value}</option>))}
+              </select>
+              <input type="submit" value="Submit" onClick={this.handleSubmit} style={innerFields} />
+            </div>
           </div>
         </fieldset>
       </form>
