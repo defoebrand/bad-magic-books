@@ -9,13 +9,14 @@ import { changeFilter } from '../actions';
 import '../styles/App.css';
 
 const headerStyle = {
+  width: '100%',
   display: 'flex',
   justifyContent: 'flex-start',
   alignItems: 'center',
   backgroundColor: '#fff',
   margin: '0 0 38px',
   padding: '23px 99px 27px 100px',
-
+  borderBottom: '2px solid #e8e8e8',
 };
 
 const titleStyle = {
@@ -61,5 +62,3 @@ App.defaultProps = {
 };
 
 export default connect(null)(App);
-
-// export default App;

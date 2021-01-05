@@ -32,6 +32,7 @@ const titleStyle = {
   fontWeight: 'bold',
   letterSpacing: -0.2,
   color: '#121212',
+  whiteSpace: 'nowrap',
 };
 
 const linksDiv = {
