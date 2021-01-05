@@ -7,11 +7,11 @@ import { removeBook } from '../actions/index';
 const BooksList = props => {
   const { books } = props;
 
-  const handleClick = () => {
-    const { removeBook } = props;
-    removeBook();
-    alert('hello');
+  const handleRemoveBook = ({ title }) => {
+    const { dispatch } = props;
+    dispatch(removeBook(title));
   };
+
   return (
     <table>
       <thead>
@@ -23,7 +23,7 @@ const BooksList = props => {
       </thead>
       <tbody>
         {books.map(value => (
-          <Book key={value.title} book={value} handleClick={handleClick} />
+          <Book key={value.title} book={value} handleClick={handleRemoveBook} />
         ))}
       </tbody>
     </table>
@@ -38,22 +38,12 @@ BooksList.propTypes = {
       category: PropTypes.string,
     }),
   ),
-  removeBook: PropTypes.func,
-
+  dispatch: PropTypes.func,
 };
 
 BooksList.defaultProps = {
   books: [],
-  removeBook: null,
-
+  dispatch: null,
 };
 
-const mapStateToProps = state => ({ books: state.bookReducer });
-
-const mapDispatchToProps = dispatch => ({
-  removeBook: () => {
-    dispatch(removeBook());
-  },
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(BooksList);
+export default connect(state => ({ books: state.bookReducer }))(BooksList);

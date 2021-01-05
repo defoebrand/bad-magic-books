@@ -7,7 +7,6 @@ class BooksForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      // bookID: Math.floor(Math.random() * 10),
       title: '',
       category: '',
     };
@@ -29,10 +28,8 @@ class BooksForm extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    const { createBook } = this.props;
-    console.log(this.state);
-    console.log(createBook);
-    createBook(this.state);
+    const { dispatch } = this.props;
+    dispatch(createBook(this.state));
     this.setState({
       title: '',
       category: '',
@@ -48,9 +45,10 @@ class BooksForm extends React.Component {
           Book Title:
           <input type="text" id="title" name="title" onChange={this.handleChange} value={title} />
         </label>
-        <select onChange={this.handleChange} id="select" value={category}>
+        <select onChange={this.handleChange} value={category}>
           <option value="">Select a category:</option>
-          {categories.map(value => <option value={value} key={value}>{value}</option>)}
+          {categories.map(value => (
+            <option value={value} key={value}>{value}</option>))}
         </select>
         <input type="submit" value="Submit" onClick={this.handleSubmit} />
       </form>
@@ -59,17 +57,11 @@ class BooksForm extends React.Component {
 }
 
 BooksForm.propTypes = {
-  createBook: PropTypes.func,
+  dispatch: PropTypes.func,
 };
 
 BooksForm.defaultProps = {
-  createBook: null,
+  dispatch: null,
 };
 
-const mapDispatchToProps = dispatch => ({
-  createBook: () => {
-    dispatch(createBook());
-  },
-});
-
-export default connect(null, mapDispatchToProps)(BooksForm);
+export default connect(null)(BooksForm);
