@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Book from '../components/Book';
-import { removeBook } from '../actions';
+import { createBook, removeBook } from '../actions';
 
 const BooksList = ({ books, filter, dispatch }) => {
   const handleRemoveBook = ({ title }) => {
@@ -10,16 +10,11 @@ const BooksList = ({ books, filter, dispatch }) => {
   };
 
   useEffect(() => {
-    // fetch('https://serene-citadel-11754.herokuapp.com/', { mode: 'cors' })
-    fetch('https://localhost:3000', { mode: 'cors' })
-      .then(response => {
-        console.log(response);
-        //   return response.json();
-        // }).then(data => {
-        //   console.log(data)
-      }).catch(err => {
-        console.error(err);
+    fetch('https://serene-citadel-11754.herokuapp.com/').then(response => response.json()).then(data => {
+      data.forEach(book => {
+        dispatch(createBook(book));
       });
+    }).catch(err => (err));
   }, []);
 
   let filteredBooks = '';

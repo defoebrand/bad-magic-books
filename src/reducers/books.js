@@ -34,13 +34,8 @@ const bookReducer = (state = initialState, action) => {
       )) + 1, state.length)));
       break;
     default:
-      if (localStorage.bookstore) {
-        return JSON.parse(localStorage.bookstore);
-      }
-      localStorage.bookstore = JSON.stringify(state.books);
       return state.books;
   }
-  localStorage.bookstore = JSON.stringify(actionVariable);
   return actionVariable;
 };
 
