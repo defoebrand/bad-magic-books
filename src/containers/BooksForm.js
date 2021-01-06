@@ -110,6 +110,15 @@ class BooksForm extends React.Component {
   handleSubmit = event => {
     event.preventDefault();
     const { dispatch } = this.props;
+    fetch('https://vast-ridge-45587.herokuapp.com/new_book', {
+      method: 'POST',
+      body: JSON.stringify(this.state),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    }).then(response => response.json()).then(data => {
+      console.log(data);
+    }).catch(err => (err));
     dispatch(createBook(this.state));
     this.setState({
       category: '',

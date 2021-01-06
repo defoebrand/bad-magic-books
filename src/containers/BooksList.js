@@ -7,6 +7,14 @@ import { createBook, removeBook } from '../actions';
 const BooksList = ({ books, filter, dispatch }) => {
   const handleRemoveBook = ({ title }) => {
     dispatch(removeBook(title));
+    fetch('https://vast-ridge-45587.herokuapp.com/remove_book', {
+      method: 'delete',
+      body: {
+        title,
+      },
+    }).then(response => response.json()).then(data => {
+      console.log(data);
+    }).catch(err => (err));
   };
 
   useEffect(() => {
