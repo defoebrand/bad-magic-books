@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Book from '../components/Book';
@@ -8,6 +8,19 @@ const BooksList = ({ books, filter, dispatch }) => {
   const handleRemoveBook = ({ title }) => {
     dispatch(removeBook(title));
   };
+
+  useEffect(() => {
+    // fetch('https://serene-citadel-11754.herokuapp.com/', { mode: 'cors' })
+    fetch('https://localhost:3000', { mode: 'cors' })
+      .then(response => {
+        console.log(response);
+        //   return response.json();
+        // }).then(data => {
+        //   console.log(data)
+      }).catch(err => {
+        console.error(err);
+      });
+  }, []);
 
   let filteredBooks = '';
 
