@@ -4,17 +4,17 @@ export const REMOVE_BOOK = 'REMOVE_BOOK';
 const initialState = {
   books: [
     {
-      bookID: Math.floor(Math.random() * 10),
-      title: 'To Kill a Mockingbird',
       category: 'Southern Gothic Fiction',
+      title: 'To Kill a Mockingbird',
+      author: 'Harper Lee',
     }, {
-      bookID: Math.floor(Math.random() * 10),
-      title: 'Drawing Blood',
       category: 'Horror',
+      title: 'Drawing Blood',
+      author: 'Poppy Z. Brite',
     }, {
-      bookID: Math.floor(Math.random() * 10),
-      title: 'War & Peace',
       category: 'History',
+      title: 'War & Peace',
+      author: 'Leo Tolstoy',
     },
   ],
 };

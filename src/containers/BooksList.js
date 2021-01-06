@@ -2,21 +2,16 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Book from '../components/Book';
-import { removeBook, changeFilter } from '../actions';
-import CategoryFilter from './CategoryFilter';
+import { removeBook } from '../actions';
 
 const BooksList = ({ books, filter, dispatch }) => {
   const handleRemoveBook = ({ title }) => {
     dispatch(removeBook(title));
   };
 
-  const handleFilterChange = event => {
-    dispatch(changeFilter(event.target.value));
-  };
-
   let filteredBooks = '';
 
-  if (filter === 'All') {
+  if (filter === 'All' || filter === '') {
     filteredBooks = books.map(value => (
       <Book key={value.title} book={value} handleClick={handleRemoveBook} />));
   } else {
@@ -26,19 +21,7 @@ const BooksList = ({ books, filter, dispatch }) => {
 
   return (
     <>
-      <CategoryFilter handleChange={handleFilterChange} />
-      <table>
-        <thead>
-          <tr>
-            <th>Book ID</th>
-            <th>Title</th>
-            <th>Category</th>
-          </tr>
-        </thead>
-        <tbody>
-          {filteredBooks}
-        </tbody>
-      </table>
+      { filteredBooks }
     </>
   );
 };
@@ -46,9 +29,9 @@ const BooksList = ({ books, filter, dispatch }) => {
 BooksList.propTypes = {
   books: PropTypes.arrayOf(
     PropTypes.shape({
-      bookID: PropTypes.number,
-      title: PropTypes.string,
       category: PropTypes.string,
+      title: PropTypes.string,
+      author: PropTypes.string,
     }),
   ),
   filter: PropTypes.string,
