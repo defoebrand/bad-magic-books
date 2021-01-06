@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 const catStyle = {
   height: 16,
-  // margin: '18px 664px 11px 41px',
   opacity: 0.5,
   fontFamily: 'Montserrat',
   fontSize: 13,

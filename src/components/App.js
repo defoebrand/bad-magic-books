@@ -6,8 +6,6 @@ import CategoryFilter from '../containers/CategoryFilter';
 
 import { changeFilter } from '../actions';
 
-import '../styles/App.css';
-
 const appStyle = {
   display: 'flex',
   flexDirection: 'column',
@@ -42,7 +40,6 @@ const iconStyle = {
 
 const titleStyle = {
   whiteSpace: 'nowrap',
-  // margin: '6px 47px 2px 0',
   marginLeft: 100,
   fontFamily: 'Montserrat',
   fontSize: 30,
@@ -51,7 +48,6 @@ const titleStyle = {
 };
 
 const bookStyle = {
-  // margin: '18px 41px 11px 0',
   marginLeft: 45,
   marginRight: 45,
   fontFamily: 'Montserrat',

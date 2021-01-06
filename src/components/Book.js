@@ -1,10 +1,12 @@
 import PropTypes from 'prop-types';
+import { CircularProgressbar } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
 
 const rowStyle = {
   display: 'flex',
   justifyContent: 'space-between',
   width: '80vw',
-  // margin: '37px 0 0',
+  minWidth: 'max-content',
   marginBottom: 35,
   padding: '32px 25px 25px 25px',
   borderRadius: 4,
@@ -28,7 +30,6 @@ const catStyle = {
 
 const titleStyle = {
   margin: '5px 0',
-  // margin: '7px 323px 0 0',
   fontFamily: 'RobotoSlab',
   fontSize: 22,
   fontWeight: 'bold',
@@ -45,7 +46,6 @@ const linksDiv = {
 const linkStyle = {
   height: 19,
   margin: 5,
-  // margin: '3px 15px 2px 0',
   fontFamily: 'RobotoSlab',
   fontSize: 14,
   fontWeight: 300,
@@ -64,8 +64,6 @@ const buttonStyle = {
   border: 'none',
   width: 184,
   height: 33,
-  // margin: '12px 0 9px 59px',
-  // padding: '7px 19px 8px 22px',
   borderRadius: 3,
   fontFamily: 'RobotoSlab',
   fontSize: 13,
@@ -74,6 +72,66 @@ const buttonStyle = {
   textAlign: 'center',
   color: '#fff',
 };
+
+const progressStyle = {
+  display: 'flex',
+  justifyContent: 'space-around',
+  alignItems: 'center',
+  width: 100,
+};
+
+const progressTextStyle = {
+  display: 'flex',
+  flexDirection: 'column',
+  flexWrap: 'wrap',
+  width: 50,
+};
+const percentStyle = {
+  width: 68,
+  height: 39,
+  margin: '1px 92px 0 11px',
+  fontFamily: 'Montserrat',
+  fontSize: 32,
+  color: '#121212',
+};
+
+const completeStyle = {
+  width: 80,
+  height: 18,
+  margin: '7px 79px 12px 12px',
+  opacity: 0.5,
+  fontFamily: 'Montserrat',
+  fontSize: 14,
+
+  color: '#121212',
+};
+
+const circularStyle = {
+  width: 68,
+  height: 68,
+};
+
+const chapterStyle = {
+  borderLeft: '2px solid #e8e8e8',
+  paddingLeft: 50,
+  width: 125,
+  margin: '0 125px 0 50px',
+  fontFamily: 'RobotoSlab',
+  fontSize: 13,
+  fontWeight: 300,
+  whiteSpace: 'nowrap',
+  color: 'rgb(18, 18, 18, 0.5)',
+};
+
+const chapterTitleStyle = {
+  fontFamily: 'RobotoSlab',
+  fontSize: 13,
+  fontWeight: 300,
+  letterSpacing: -0.4,
+  color: '#121212',
+};
+
+const percent = 5;
 
 const Book = ({ book, handleClick }) => (
   <div style={rowStyle}>
@@ -87,7 +145,25 @@ const Book = ({ book, handleClick }) => (
         <p style={linkStyle}>Edit</p>
       </div>
     </div>
-    <button type="button" style={buttonStyle}>hello!</button>
+    <div style={progressStyle}>
+      <div style={circularStyle}>
+        <CircularProgressbar value={percent} className="circular" />
+      </div>
+      <div style={progressTextStyle} className="circularProgress">
+        <p style={percentStyle}>
+          {percent}
+          %
+        </p>
+        <p style={completeStyle}>
+          Completed
+        </p>
+      </div>
+    </div>
+    <div style={chapterStyle}>
+      <p>CURRENT CHAPTER</p>
+      <p style={chapterTitleStyle}>INTRODUCTION</p>
+      <button type="button" style={buttonStyle}>UPDATE PROGRESS</button>
+    </div>
   </div>
 );
 
