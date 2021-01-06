@@ -8,9 +8,10 @@ const BooksList = ({ books, filter, dispatch }) => {
   const handleRemoveBook = ({ title }) => {
     dispatch(removeBook(title));
     fetch('https://vast-ridge-45587.herokuapp.com/remove_book', {
-      method: 'delete',
-      body: {
-        title,
+      method: 'POST',
+      body: JSON.stringify({ title }),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
       },
     }).then(response => response.json()).then(data => {
       console.log(data);
