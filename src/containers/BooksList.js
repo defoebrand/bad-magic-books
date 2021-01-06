@@ -10,7 +10,7 @@ const BooksList = ({ books, filter, dispatch }) => {
   };
 
   useEffect(() => {
-    fetch('https://serene-citadel-11754.herokuapp.com/').then(response => response.json()).then(data => {
+    fetch('https://vast-ridge-45587.herokuapp.com/').then(response => response.json()).then(data => {
       data.forEach(book => {
         dispatch(createBook(book));
       });
