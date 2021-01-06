@@ -25,6 +25,22 @@ const bookReducer = (state = initialState, action) => {
   switch (action.type) {
     case CREATE_BOOK:
       actionVariable = [...state, action.book];
+
+      fetch('https://serene-citadel-11754.herokuapp.com/create', {
+        mode: 'cors',
+        method: 'post',
+        body: {
+          title: action.book.title,
+          author: action.book.author,
+          category: action.book.category,
+        },
+        headers: {
+          'Content-type': 'application/json; charset=UTF-8',
+        },
+      }).then(response => response.json()).then(data => {
+        console.log(data);
+      }).catch(err => (err));
+
       break;
     case REMOVE_BOOK:
       actionVariable = (state.slice(0, state.findIndex(elem => (
