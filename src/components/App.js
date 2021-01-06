@@ -18,18 +18,32 @@ const appStyle = {
 const headerStyle = {
   width: '100%',
   display: 'flex',
-  justifyContent: 'flex-start',
+  justifyContent: 'space-between',
   alignItems: 'center',
   backgroundColor: '#fff',
   marginBottom: 38,
-  // padding: '23px 99px 27px 100px',
   borderBottom: '2px solid #e8e8e8',
+};
+
+const headerLeftStyle = {
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+};
+
+const iconStyle = {
+  color: '#0290ff',
+  border: '2px solid #e8e8e8',
+  borderRadius: 50,
+  padding: '15px 18px',
+  fontSize: 25,
+  marginRight: 100,
 };
 
 const titleStyle = {
   whiteSpace: 'nowrap',
   // margin: '6px 47px 2px 0',
-  marginLeft: 25,
+  marginLeft: 100,
   fontFamily: 'Montserrat',
   fontSize: 30,
   fontWeight: 'bold',
@@ -53,9 +67,12 @@ const App = ({ dispatch }) => {
   return (
     <div style={appStyle}>
       <header style={headerStyle}>
-        <h3 style={titleStyle}>Bookstore CMS</h3>
-        <p style={bookStyle}>BOOKS</p>
-        <CategoryFilter handleChange={handleFilterChange} />
+        <div style={headerLeftStyle}>
+          <h3 style={titleStyle}>Bookstore CMS</h3>
+          <p style={bookStyle}>BOOKS</p>
+          <CategoryFilter handleChange={handleFilterChange} />
+        </div>
+        <i className="fa fa-user" style={iconStyle} />
       </header>
       <BooksList />
       <BooksForm />

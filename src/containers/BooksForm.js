@@ -5,19 +5,22 @@ import { createBook } from '../actions/index';
 
 const formStyle = {
   borderTop: '2px solid #e8e8e8',
-  paddingTop: 50,
-  // margin: '50px auto 0',
+  paddingTop: 15,
 };
 
 const fieldStyle = {
   display: 'flex',
   flexDirection: 'column',
   border: 'none',
-  // margin: '0 40px 65px 0',
-  borderRadius: 4,
-  width: '80vw',
+  padding: 0,
+  width: '83vw',
   marginBottom: 50,
-  // boxShadow: '0 0 60px 0 rgba(0, 0, 0, 0.05)',
+  fontFamily: 'Montserrat',
+  fontSize: 20,
+  fontWeight: 'bold',
+  letterSpacing: -0.18,
+  color: '#888888',
+
 };
 
 const inputDivStyle = {
@@ -26,11 +29,54 @@ const inputDivStyle = {
   alignItems: 'center',
   justifyContent: 'flex-start',
   marginTop: 15,
-  // height: 100,
 };
 
-const innerFields = {
-  margin: 15,
+const inputField = {
+  marginRight: 15,
+  marginBottom: 15,
+  width: '33%',
+  padding: '13px 0 13px 17px',
+  borderRadius: 4,
+  border: 'solid 1px #e8e8e8',
+  backgroundColor: '#ffffff',
+
+  fontFamily: 'Montserrat',
+  fontSize: 16,
+  letterSpacing: -0.15,
+  color: '#c4c4c4',
+
+};
+
+const selectBox = {
+  marginRight: 15,
+  marginBottom: 15,
+  width: '45%',
+  padding: '10px 15px 10px 10px',
+  borderRadius: 4,
+  border: 'solid 1px #e8e8e8',
+  backgroundColor: '#ffffff',
+  WebkitAppearance: 'none',
+  fontFamily: 'Montserrat',
+  fontSize: 16,
+  letterSpacing: -0.15,
+  color: '#c4c4c4',
+};
+
+const submitBtn = {
+  marginRight: 15,
+  marginBottom: 15,
+  fontFamily: 'RobotoSlab',
+  fontSize: 13,
+  fontWeight: 'bold',
+  letterSpacing: 0.5,
+  textAlign: 'center',
+  color: '#fff',
+  border: 'none',
+  width: 184,
+  height: 38,
+  borderRadius: 3,
+  backgroundColor: '#0290ff',
+
 };
 
 class BooksForm extends React.Component {
@@ -78,17 +124,17 @@ class BooksForm extends React.Component {
     return (
       <form style={formStyle}>
         <fieldset style={fieldStyle}>
-          ADD NEW BOOK
+          <p style={{ margin: '5px 0' }}>ADD NEW BOOK</p>
           <div style={inputDivStyle}>
-            <input type="text" id="title" name="title" onChange={this.handleChange} value={title} placeholder="Book title" style={innerFields} />
-            <input type="text" id="author" name="author" onChange={this.handleChange} value={author} placeholder="Book author" style={innerFields} />
+            <input type="text" id="title" name="title" onChange={this.handleChange} value={title} placeholder="Book title" style={inputField} />
+            <input type="text" id="author" name="author" onChange={this.handleChange} value={author} placeholder="Book author" style={inputField} />
             <div>
-              <select onChange={this.handleChange} value={category} style={innerFields}>
+              <select onChange={this.handleChange} value={category} style={selectBox}>
                 <option value="">Select a category:</option>
                 {categories.map(value => (
                   <option value={value} key={value}>{value}</option>))}
               </select>
-              <input type="submit" value="Submit" onClick={this.handleSubmit} style={innerFields} />
+              <input type="submit" value="Add Book" onClick={this.handleSubmit} style={submitBtn} />
             </div>
           </div>
         </fieldset>
